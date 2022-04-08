@@ -1,0 +1,102 @@
+step-1
+
+Create an empty git repo. After sucessfull creation of the repo, open it and navigate to actions.
+In the actions you will be finding plenty of frameworks, and clouds choose node.js by typing in the 
+search box.
+
+After filtering node.js tile click on configure and do the following steps
+Skip to content
+Search or jump to…
+Pull requests
+Issues
+Marketplace
+Explore
+ 
+@shashidharyellenki 
+shashidharyellenki
+/
+testcicd
+Public
+Pin
+ Unwatch 1 Fork 0
+ Star 0
+Code
+Issues
+Pull requests
+Actions
+Projects
+Wiki
+Security
+Insights
+Settings
+main
+testcicd/.github/workflows/node.js.yml
+ 
+Latest commit  17 minutes ago
+History
+ 1 contributor
+32 lines (26 sloc)  1016 Bytes
+   
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
+
+name: Node.js CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x, 14.x, 16.x]
+        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+    - run: npm run build --if-present
+    - run: npm test
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@v4
+      with:
+        branch: gh-pages # The branch the action should deploy to.
+        folder: dist # The folder the action should deploy.
+© 2022 GitHub, Inc.
+Terms
+Privacy
+Security
+Status
+Docs
+Contact GitHub
+Pricing
+API
+Training
+Blog
+About
+Loading complete
+
+and do commit
+
+creaate a fresh vs code folder before cloning it add index.html and test files and funcitons file. then clone git 
+and do the following installation
+npm init --y
+npn install jest
+npm install parcel-bundler
+npm install build
+
+to verify your process is correct you need to find homepage in pacckage.json file
+and run npm test. Beofre doing this chnage the script to this 
+    "build": "parcel build index.html",
+    "dev": "parcel index.html --open",
+    "start": "npm run build && npm run dev"
+
+and run npm test make sure all you test cases should pass and push it to git and naviagte to actions 
+to see all jobs are passing or not
