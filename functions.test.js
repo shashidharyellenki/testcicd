@@ -7,7 +7,7 @@
 //1
  //toBe acts as match fucntion it checks weather the recevied answer is to satisfying the answer or not
  test("yaya the answer is correct all the test cases are passed",()=>{
-     expect(file.Addtion(2,2)).toBe(4);
+     expect(file.Addtion(2,3)).toBe(5);
  })
 //2
  test("the answer for 5,9 is 14 and the test cases is,",()=>{

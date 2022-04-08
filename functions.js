@@ -1,6 +1,6 @@
 // const axios = require('axios');
 const poo = {
-    Addtion: (args1, args2)=> args1+args2,
+    Addtion: (args1, args2)=> args1*args2,
     NULL : function(){return null},
     Undef : function(){return undefined},
     Nijam : function(){return true},
